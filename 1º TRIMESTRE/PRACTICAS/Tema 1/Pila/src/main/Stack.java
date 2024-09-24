@@ -60,23 +60,46 @@ public class Stack<T> {
 		}
 	}
 
+	/**
+	 * Metodo push Introduce los elementos al ArrayList
+	 * 
+	 * @param element es el elemento que se desea introducir
+	 */
 	public void push(T element) {
 		this.stack.add(element);
 	}
 
+	/**
+	 * Metodo toString que convierte el ArrayList en una cadena de texto
+	 */
 	public String toString() {
-		return this.stack.toString();
+		return "Pila: " + this.stack.toString();
+	}
+
+	/**
+	 * Metodo remove Elimina el elemento del indice que se desee
+	 * 
+	 * @param index es el indice que se desea eliminar
+	 */
+	public void remove() {
+		if (!isEmpty() ) {
+			this.stack.remove(this.stack.get(this.stack.size() - 1));
+		} else {
+			System.out.println("Lo siento no hay elementos en la pila");
+		}
 	}
 
 	public static void main(String[] args) {
 		Stack stack = new Stack();
-		stack.push(2);
-		stack.push(3);
-		stack.push(4);
 		System.out.println("El elemento que está en la cima es " + stack.peek());
-		System.out.println("Pila original: " + stack.toString());
+		System.out.println(stack.toString());
 		stack.pop();
-		System.out.println("Pila actualizada: " + stack.toString());
+		System.out.println(stack.toString());
+		stack.push(5);
+		stack.push(10);
+		System.out.println(stack.toString());
+		stack.remove();
+		System.out.println(stack.toString());
 	}
 
 }
