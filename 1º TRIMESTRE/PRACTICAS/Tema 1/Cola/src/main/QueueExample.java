@@ -39,8 +39,8 @@ public class QueueExample<T> {
 		if (isEmpty()) {
 			return null;
 		} else {
-			T element = this.cola.get(this.cola.size() - 1);
-			this.cola.removeLast();
+			T element = this.cola.getFirst();
+			this.cola.removeFirst();
 			return element;
 		}
 	}
@@ -54,7 +54,7 @@ public class QueueExample<T> {
 		if (isEmpty()) {
 			return null;
 		} else {
-			return this.cola.get(this.cola.size() - 1);
+			return this.cola.getFirst();
 		}
 	}
 
