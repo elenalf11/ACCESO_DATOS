@@ -13,7 +13,6 @@ public class PhoneBook {
 	 */
 
 	private HashMap<String, Integer> contact;
-	private Scanner sc;
 
 	/**
 	 * Constructora
@@ -21,7 +20,6 @@ public class PhoneBook {
 
 	public PhoneBook() {
 		this.contact = new HashMap<>();
-		this.sc = new Scanner(System.in);
 	}
 
 	/**
