@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- * @author elena Agenda telefonica con HashMap
+ * @author elena Crea una agenda telefonica con HashMap
  */
 
 public class PhoneBook {
