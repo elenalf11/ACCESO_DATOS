@@ -16,7 +16,7 @@ public class PhoneBook {
 	private Scanner sc;
 
 	/**
-	 * Constructura
+	 * Constructora
 	 */
 
 	public PhoneBook() {
