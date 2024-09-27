@@ -1,7 +1,6 @@
 package main;
 
 import java.util.HashMap;
-import java.util.Scanner;
 
 /**
  * @author elena Crea una agenda telefonica con HashMap
