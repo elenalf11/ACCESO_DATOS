@@ -43,5 +43,6 @@ public class Main {
 				break;
 			}
 		} while (opcion != 5);
+		sc.close();
 	}
 }
