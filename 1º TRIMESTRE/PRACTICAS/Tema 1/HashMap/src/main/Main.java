@@ -22,13 +22,21 @@ public class Main {
 			opcion = sc.nextInt();
 			switch (opcion) {
 			case 1:
-				agenda.add();
+				System.out.print("Nombre del contacto: ");
+				String name_1 = sc.next();
+				System.out.print("Número telefónico: ");
+				int number_1 = sc.nextInt();
+				agenda.add(name_1, number_1);
 				break;
 			case 2:
-				agenda.delete();
+				System.out.print("Nombre del contacto que quieres eliminar: ");
+				String name_2 = sc.next();
+				agenda.delete(name_2);
 				break;
 			case 3:
-				agenda.search();
+				System.out.print("Nombre del contacto que quieres buscar: ");
+				String name_3 = sc.next();
+				agenda.search(name_3);
 				break;
 			case 4:
 				agenda.viewContacts();

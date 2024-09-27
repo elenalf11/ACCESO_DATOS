@@ -31,11 +31,7 @@ public class PhoneBook {
 	 * @param number el numero que se quiere aniadir o actualizar
 	 * @return devuelve true si se ha podido aniadir o actualizar correctamente
 	 */
-	public boolean add() {
-		System.out.print("Nombre del contacto: ");
-		String name = this.sc.next();
-		System.out.print("Número telefónico: ");
-		int number = this.sc.nextInt();
+	public boolean add(String name, int number) {
 		this.contact.put(name, number);
 		System.out.println("El contacto ha sido añadido/actualizado correctamente");
 		return true;
@@ -47,9 +43,7 @@ public class PhoneBook {
 	 * @param name el nombre del contacto que se quiere eliminar
 	 * @return devuelve true si se ha podido eliminar, sino, devuelve false
 	 */
-	public boolean delete() {
-		System.out.print("Nombre del contacto que quieres eliminar: ");
-		String name = this.sc.next();
+	public boolean delete(String name) {
 		if (this.contact.containsKey(name)) {
 			this.contact.remove(name);
 			System.out.println("El contacto ha sido eliminado con éxito");
@@ -66,9 +60,7 @@ public class PhoneBook {
 	 * @param name el nombre del contacto que se quiere buscar
 	 * @return devuelve true si se ha encontrado, sino, devuelve false
 	 */
-	public boolean search() {
-		System.out.print("Nombre del contacto que quieres buscar: ");
-		String name = this.sc.next();
+	public boolean search(String name) {
 		if (this.contact.containsKey(name)) {
 			System.out.println("El número de teléfono de " + name + " es " + this.contact.get(name));
 			return true;
