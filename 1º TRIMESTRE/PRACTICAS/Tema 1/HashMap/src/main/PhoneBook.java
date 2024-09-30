@@ -28,10 +28,9 @@ public class PhoneBook {
 	 * @param number el numero que se quiere aniadir o actualizar
 	 * @return devuelve true si se ha podido aniadir o actualizar correctamente
 	 */
-	public boolean add(String name, int number) {
+	public void add(String name, int number) {
 		this.contact.put(name, number);
 		System.out.println("El contacto ha sido añadido/actualizado correctamente");
-		return true;
 	}
 
 	/**
@@ -40,14 +39,12 @@ public class PhoneBook {
 	 * @param name el nombre del contacto que se quiere eliminar
 	 * @return devuelve true si se ha podido eliminar, sino, devuelve false
 	 */
-	public boolean delete(String name) {
+	public void delete(String name) {
 		if (this.contact.containsKey(name)) {
 			this.contact.remove(name);
 			System.out.println("El contacto ha sido eliminado con éxito");
-			return true;
 		} else {
 			System.out.println("El contacto no se ha encontrado en la agenda telefónica");
-			return false;
 		}
 	}
 
@@ -57,13 +54,11 @@ public class PhoneBook {
 	 * @param name el nombre del contacto que se quiere buscar
 	 * @return devuelve true si se ha encontrado, sino, devuelve false
 	 */
-	public boolean search(String name) {
+	public void search(String name) {
 		if (this.contact.containsKey(name)) {
 			System.out.println("El número de teléfono de " + name + " es " + this.contact.get(name));
-			return true;
 		} else {
 			System.out.println("El contacto no se ha encontrado en la agenda telefónica");
-			return false;
 		}
 	}
 
@@ -73,16 +68,14 @@ public class PhoneBook {
 	 * @return devuelve true si se han podido listar todos los elementos, sino,
 	 *         devuelve false
 	 */
-	public boolean viewContacts() {
+	public void viewContacts() {
 		if (this.contact.isEmpty()) {
 			System.out.println("La agenda telefónica está vacía");
-			return false;
 		} else {
 			System.out.println("Contactos en la agenda telefónica: ");
 			for (String name : this.contact.keySet()) {
 				System.out.println("Nombre: " + name + " , Número telefónico: " + this.contact.get(name));
 			}
-			return true;
 		}
 	}
 }

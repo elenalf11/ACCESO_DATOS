@@ -42,6 +42,12 @@ public class Main {
 			case 4:
 				agenda.viewContacts();
 				break;
+			case 5:
+				System.out.println("Saliendo de la aplicación...");
+				break;
+			default:
+				System.out.println("Opción no válida");
+				break;
 			}
 		} while (opcion != 5);
 		sc.close();
