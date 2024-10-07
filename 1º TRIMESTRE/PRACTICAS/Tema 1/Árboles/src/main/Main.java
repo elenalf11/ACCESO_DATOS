@@ -22,6 +22,9 @@ public class Main {
 		System.out.println(arbol.search(2));
 		System.out.println(arbol.search(3));
 		System.out.println(arbol.search(10));
+		
+		//arbol.PostOrden();
+		arbol.PreOrden();
 
 	}
 
