@@ -5,10 +5,13 @@ package main;
  * 
  * @author elena
  */
+
 public class BST {
+
 	/**
-	 * Attributes
+	 * Attribute
 	 */
+
 	private Node root;
 
 	/**
@@ -28,6 +31,7 @@ public class BST {
 	 * @return return the node with the user value
 	 */
 	private Node addRecursive(Node current, int _value) {
+
 		if (current == null) {
 			return new Node(_value);
 		}
@@ -41,28 +45,13 @@ public class BST {
 		}
 		return current;
 	}
-
-	/**
-	 * Method which it returns the height of the tree
-	 * 
-	 * @return the height of the tree
-	 */
-	public int getHeight() {
-		return getHeightRecursive(this.root);
+	
+	public int howManyNodesAre () {
+		
+	}
+	
+	private int howManyNodesAreRecursive(Node current) {
+		
 	}
 
-	/**
-	 * Method which it returns the height of the tree. Using a recursive method
-	 * 
-	 * @param current its the current node (Starts in the root)
-	 * @return the height of the tree
-	 */
-	private int getHeightRecursive(Node current) {
-		if (current == null) {
-			return 0;
-		}
-
-		return 1 + Math.max(getHeightRecursive(current.left), getHeightRecursive(current.right));
-	}
 }
-

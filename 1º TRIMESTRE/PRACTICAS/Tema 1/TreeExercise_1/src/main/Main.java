@@ -1,8 +1,9 @@
 package main;
 
 /**
- * Ejercicio 1: Un arbol es estricto si tiene 2 hijos o ninguno. Crea un metodo
- * recursivo para comprobarlo
+ * Ejercicio 1: Se dice que un árbol binario de búsqueda es "estricto" cuando
+ * todos los nodods tienen cero o dos hijos. Escribe un método recursivo que
+ * compruebe si un árbol binario es estricto
  * 
  * @author elena
  */

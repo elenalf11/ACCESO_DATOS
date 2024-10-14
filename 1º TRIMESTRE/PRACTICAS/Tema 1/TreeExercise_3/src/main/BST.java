@@ -42,26 +42,17 @@ public class BST {
 		return current;
 	}
 
-	/**
-	 * Method which it returns the height of the tree
-	 * 
-	 * @return the height of the tree
-	 */
-	public int getHeight() {
-		return getHeightRecursive(this.root);
+	public int maxValue() {
+		maxValueRecursive(this.root);
 	}
 
-	/**
-	 * Method which it returns the height of the tree. Using a recursive method
-	 * 
-	 * @param current its the current node (Starts in the root)
-	 * @return the height of the tree
-	 */
-	private int getHeightRecursive(Node current) {
-		if (current == null) {
-			return 0;
+	private int maxValueRecursive(Node current) {
+		int max = 0;
+		if (current != null) {
+			max = current.value;
+			return max;
 		}
-
-		return 1 + Math.max(getHeightRecursive(current.left), getHeightRecursive(current.right));
+		
 	}
+
 }
