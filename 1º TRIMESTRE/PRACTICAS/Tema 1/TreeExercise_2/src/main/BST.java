@@ -65,4 +65,3 @@ public class BST {
 		return 1 + Math.max(getHeightRecursive(current.left), getHeightRecursive(current.right));
 	}
 }
-
