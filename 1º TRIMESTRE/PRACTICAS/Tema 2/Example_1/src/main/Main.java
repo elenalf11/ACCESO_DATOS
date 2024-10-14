@@ -3,8 +3,8 @@ package main;
 public class Main {
 
 	public static void main(String[] args){
+		Arithmetic prueba = new Arithmetic(-2, 3);
 		try {
-			Arithmetic prueba = new Arithmetic(-2, 0);
 			int z = prueba.division();
 			System.out.println(z);
 		}
@@ -17,6 +17,7 @@ public class Main {
 		finally {
 			System.out.println("La ejecucion ha acabado");
 		}
+		System.out.println("El programa ha acabado");
 		
 
 	}

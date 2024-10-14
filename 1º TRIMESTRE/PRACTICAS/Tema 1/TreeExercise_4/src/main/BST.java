@@ -26,7 +26,7 @@ public class BST {
 	/**
 	 * Add the user value into a node. Using a recursive method
 	 * 
-	 * @param current its the current node (Starts in the root)
+	 * @param current its the current node (Starting in the root)
 	 * @param _value  its the user value
 	 * @return return the node with the user value
 	 */
@@ -45,13 +45,27 @@ public class BST {
 		}
 		return current;
 	}
-	
-	public int howManyNodesAre () {
-		
+
+	/**
+	 * Count the number of nodes in the tree
+	 * 
+	 * @return the number of nodes in the tree
+	 */
+	public int howManyNodesAre() {
+		return howManyNodesAreRecursive(this.root);
 	}
-	
+
+	/**
+	 * Count the number of nodes in the tree. Using a recursive method
+	 * 
+	 * @param current its the current node (Starting in the root)
+	 * @return the number of nodes in the tree
+	 */
 	private int howManyNodesAreRecursive(Node current) {
-		
+		if (current == null) {
+			return 0;
+		}
+		return 1 + howManyNodesAreRecursive(current.left) + howManyNodesAreRecursive(current.right);
 	}
 
 }
