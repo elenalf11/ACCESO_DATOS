@@ -23,7 +23,7 @@ public class BST {
 	/**
 	 * Add the user value into a node. Using a recursive method
 	 * 
-	 * @param current its the current node (Starts in the root)
+	 * @param current its the current node (Starting in the root)
 	 * @param _value  its the user value
 	 * @return return the node with the user value
 	 */
