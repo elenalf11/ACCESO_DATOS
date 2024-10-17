@@ -1,15 +1,17 @@
 package main;
 
 /**
- * Binary Search Tree class
+ * Aditional Binary Search Tree class
  * 
  * @author elena
  */
-public class BST {
+
+public class AditionalBST {
+
 	/**
-	 * Attributes
+	 * Attribute
 	 */
-	private Node root;
+	Node root;
 
 	/**
 	 * Add the user value into a node
@@ -40,15 +42,6 @@ public class BST {
 			return current;
 		}
 		return current;
-	}
-
-	public int maxValue() {
-		return maxValueRecursive(this.root);
-	}
-
-	private int maxValueRecursive(Node current) {
-		
-		
 	}
 
 }
