@@ -43,20 +43,35 @@ public class BST {
 		}
 		return current;
 	}
-	
+
+	/**
+	 * Count the number of leaves of a tree. A leave is a node that doesn't has any
+	 * children
+	 * 
+	 * @return the number of leaves of a tree
+	 */
 	public int countLeaves() {
 		return countLeavesRecursive(this.root);
 	}
-	
+
+	/**
+	 * Count the number of leaves of a tree. A leave is a node that doesnt't has any
+	 * children. Using a recursive method
+	 * 
+	 * @param current its the current node. Starting in the root
+	 * @return the number of leaves of a tree
+	 */
 	private int countLeavesRecursive(Node current) {
 		int counter = 0;
-		if(current == null) {
-			return counter;
+		if (current == null) {
+			return 0;
 		}
-		
-		return counter;
-		
-		
+		if (current.left == null && current.right == null) {
+			counter++;
+		}
+
+		return counter + countLeavesRecursive(current.left) + countLeavesRecursive(current.right);
+
 	}
 
 }

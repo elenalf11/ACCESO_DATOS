@@ -21,7 +21,7 @@ public class Main {
 		tree.add(9);
 		tree.add(7);
 		tree.add(12);
-		System.out.println("El valor máximo del árbol es: " + tree.maxValue());
+		//System.out.println("El valor máximo del árbol es: " + tree.maxValue());
 
 	}
 

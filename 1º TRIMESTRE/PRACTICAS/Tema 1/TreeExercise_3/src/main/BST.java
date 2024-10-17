@@ -47,8 +47,13 @@ public class BST {
 	}
 
 	private int maxValueRecursive(Node current) {
+		if(current == null) {
+			return -1;
+		}
 		
-		
+		maxValueRecursive(current.left);
+		maxValueRecursive(current.right);
+
 	}
 
 }
