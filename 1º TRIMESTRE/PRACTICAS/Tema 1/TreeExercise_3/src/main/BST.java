@@ -42,18 +42,31 @@ public class BST {
 		return current;
 	}
 
+	/**
+	 * Return the max value of the tree
+	 * 
+	 * @return the max value of the tree
+	 */
 	public int maxValue() {
 		return maxValueRecursive(this.root);
 	}
 
+	/**
+	 * Return the max value of the tree. Using a recursive method
+	 * 
+	 * @param current its the current node (Starting in the root)
+	 * @return the max value of the tree
+	 */
 	private int maxValueRecursive(Node current) {
-		if(current == null) {
+		if (current == null) {
 			return -1;
 		}
-		
-		maxValueRecursive(current.left);
-		maxValueRecursive(current.right);
-		
+		int max = current.value;
+		int maxR = maxValueRecursive(current.right);
+		int maxL = maxValueRecursive(current.left);
+
+		return Math.max(Math.max(maxR, maxL), max);
+
 	}
 
 }
