@@ -53,7 +53,7 @@ public class BST {
 		
 		maxValueRecursive(current.left);
 		maxValueRecursive(current.right);
-
+		
 	}
 
 }
