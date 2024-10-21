@@ -65,14 +65,10 @@ public class BST {
 		}
 
 		if ((current.left == null && current.right != null) || (current.left != null && current.right == null)) {
-			return false;
-		}
-		
-		if(current.left != null && current.right != null) {
-			return true;
+			return (isStrictRecursive(current.left) && isStrictRecursive(current.right));
 		}
 
-		return isStrictRecursive(current.left) && isStrictRecursive(current.right);
+		return false;
 	}
 
 }
