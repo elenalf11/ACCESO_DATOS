@@ -62,15 +62,17 @@ public class BST {
 	 * @return the number of leaves of a tree
 	 */
 	private int countLeavesRecursive(Node current) {
-		int counter = 0;
+		//int counter = 0;
 		if (current == null) {
 			return 0;
 		}
 		if (current.left == null && current.right == null) {
-			counter++;
+			//counter++;
+			return 1;
 		}
-
-		return counter + countLeavesRecursive(current.left) + countLeavesRecursive(current.right);
+		
+		return countLeavesRecursive(current.left) + countLeavesRecursive(current.right);
+		//return counter + countLeavesRecursive(current.left) + countLeavesRecursive(current.right);
 
 	}
 

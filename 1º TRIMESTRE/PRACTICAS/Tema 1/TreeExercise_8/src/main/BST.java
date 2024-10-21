@@ -64,6 +64,7 @@ public class BST {
 			return 0;
 		}
 
+		// int even = (current.value % 2 == 0) ? current.value : 0;
 		int even = 0;
 		if (current.value % 2 == 0) {
 			even = current.value;
