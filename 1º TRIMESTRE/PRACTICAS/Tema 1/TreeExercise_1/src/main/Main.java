@@ -22,7 +22,7 @@ public class Main {
 		tree.add(9);
 		tree.add(7);
 		tree.add(12);
-		if(tree.isStrict() == true) {
+		if(tree.isStrict()) {
 			System.out.println("El árbol es estricto");
 		}else {
 			System.out.println("El árbol no es estricto");

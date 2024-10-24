@@ -22,13 +22,13 @@ public class Main {
 		tree_1.add(3);
 		tree_1.add(1);
 		tree_1.add(4);
-		//tree_1.add(9);
-		//tree_1.add(7);
-		//tree_1.add(12);
+		tree_1.add(9);
+		tree_1.add(7);
+		tree_1.add(12);
 		
-		//tree_2.add(15);
-		//tree_2.add(20);
-		//tree_2.add(18);
+		tree_2.add(15);
+		tree_2.add(20);
+		tree_2.add(18);
 		tree_2.add(24);
 		tree_2.add(6);
 		tree_2.add(3);

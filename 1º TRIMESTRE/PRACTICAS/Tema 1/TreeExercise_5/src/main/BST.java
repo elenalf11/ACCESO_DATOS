@@ -65,17 +65,15 @@ public class BST {
 	 * @return true if both of the trees are equals, if not, false
 	 */
 	private boolean isIdenticalRecursive(Node main, Node other) {
+		if (main == null && other == null) {
+			return true;
+		}
+
 		if (main == null || other == null) {
-			return true;
-		}
-		isIdenticalRecursive(main.left, other.left);
-		isIdenticalRecursive(main.right, other.right);
-		if (main.value != other.value) {
-			return false;
-		} else if (main.value == other.value) {
-			return true;
-		} else {
 			return false;
 		}
+
+		return (main.value == other.value) && isIdenticalRecursive(main.left, other.left)
+				&& isIdenticalRecursive(main.right, other.right);
 	}
 }
