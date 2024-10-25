@@ -32,7 +32,7 @@ public class AgeValidation {
 		try {
 			checkAge(edad);
 		} catch (InvalidAgeException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Invalid age: " + e.getMessage());
 		} finally {
 			sc.close();
 		}

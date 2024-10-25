@@ -29,7 +29,7 @@ public class Matrix {
 			}
 			System.out.println("");
 		}
-		
+
 		try {
 			// User position
 			System.out.println("Dime la posición i que quieras cambiar: ");
@@ -39,22 +39,16 @@ public class Matrix {
 			System.out.println("Dime el elemento que quieres añadir: ");
 			element = sc.nextInt();
 
-			// Replace the item with the new user item
-			for (int i = 0; i < matrix.length; i++) {
-				for (int j = 0; j < matrix.length; j++) {
-					if (pi == i && pj == j) {
-						matrix[pi][pj] = element;
-					}
-				}
-			}
-		}catch(IndexOutOfBoundsException e) {
+			// Update the position with the user value
+			matrix[pi][pj] = element;
+		} catch (IndexOutOfBoundsException e) {
 			System.out.println("Invalid position: " + e.getMessage());
-		}finally {
+		} finally {
 			System.out.println("Posición actualizada");
 			sc.close();
 			System.out.println("La nueva matriz es: ");
-			for(int i = 0; i < matrix.length; i++) {
-				for(int j = 0; j < matrix.length; j++) {
+			for (int i = 0; i < matrix.length; i++) {
+				for (int j = 0; j < matrix.length; j++) {
 					System.out.print(matrix[i][j] + " ");
 				}
 				System.out.println(" ");
