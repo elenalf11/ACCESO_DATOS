@@ -44,4 +44,56 @@ public class AditionalBST {
 		return current;
 	}
 
+	public boolean search(int _value) {
+		return searchRecursive(this.root, _value);
+	}
+
+	private boolean searchRecursive(Node current, int _value) {
+		if (current == null) {
+			return false;
+		}
+
+		if (_value == current.value) {
+			return true;
+		}
+
+		return _value < current.value ? searchRecursive(current.left, _value) : searchRecursive(current.right, _value);
+	}
+	
+	public void Pre_Orden() {
+		Pre_Orden_Recursive(this.root);
+	}
+	
+	private void Pre_Orden_Recursive(Node current) {
+		if(current != null) {
+			System.out.println("Valor: " + current.value);
+			Pre_Orden_Recursive(current.left);
+			Pre_Orden_Recursive(current.right);
+		}
+	}
+	
+	public void Post_Orden() {
+		Post_Orden_Recursive(this.root);
+	}
+	
+	private void Post_Orden_Recursive(Node current) {
+		if(current != null) {
+			Post_Orden_Recursive(current.left);
+			Post_Orden_Recursive(current.right);
+			System.out.println("Valor: " + current.value);
+		}
+	}
+	
+	public void In_Orden() {
+		In_Orden_Recursive(this.root);
+	}
+	
+	private void In_Orden_Recursive(Node current) {
+		if(current != null) {
+			In_Orden_Recursive(current.left);
+			System.out.println("Valor: " + current.value);
+			In_Orden_Recursive(current.right);
+		}
+	}
+
 }

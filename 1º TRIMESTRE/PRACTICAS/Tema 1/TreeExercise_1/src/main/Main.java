@@ -27,6 +27,12 @@ public class Main {
 		}else {
 			System.out.println("El árbol no es estricto");
 		}
+		System.out.println("Recorrido Pre-Orden: ");
+		tree.Pre_Orden();
+		System.out.println("Recorrido Post-Orden: ");
+		tree.Post_Orden();
+		System.out.println("Recorrido In-Orden: ");
+		tree.In_Orden();
 
 	}
 

@@ -85,6 +85,7 @@ public class QueueExample<T> {
 	 * 
 	 * @return devuelve la cola en forma de una cadena de texto
 	 */
+	@Override
 	public String toString() {
 		return "Cola: " + this.cola.toString();
 	}

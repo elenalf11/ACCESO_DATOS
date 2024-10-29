@@ -76,4 +76,57 @@ public class BST {
 		return (main.value == other.value) && isIdenticalRecursive(main.left, other.left)
 				&& isIdenticalRecursive(main.right, other.right);
 	}
+
+	public boolean search(int element) {
+		return searchRecursive(this.root, element);
+	}
+
+	private boolean searchRecursive(Node current, int element) {
+		if (current == null) {
+			return false;
+		}
+
+		if (element == current.value) {
+			return true;
+		}
+
+		return element < current.value ? searchRecursive(current.left, element)
+				: searchRecursive(current.right, element);
+	}
+	
+	public void Pre_Orden() {
+		Pre_Orden_Recursive(this.root);
+	}
+	
+	private void Pre_Orden_Recursive(Node current) {
+		if(current != null) {
+			System.out.println("Valor: " + current.value);
+			Pre_Orden_Recursive(current.left);
+			Pre_Orden_Recursive(current.right);
+		}
+	}
+	
+	public void Post_Orden() {
+		Post_Orden_Recursive(this.root);
+	}
+	
+	private void Post_Orden_Recursive(Node current) {
+		if(current != null) {
+			Post_Orden_Recursive(current.left);
+			Post_Orden_Recursive(current.right);
+			System.out.println("Valor: " + current.value);
+		}
+	}
+	
+	public void In_Orden() {
+		In_Orden_Recursive(this.root);
+	}
+	
+	private void In_Orden_Recursive(Node current) {
+		if(current != null) {
+			In_Orden_Recursive(current.left);
+			System.out.println("Valor: " + current.value);
+			In_Orden_Recursive(current.right);
+		}
+	}
 }
