@@ -1,0 +1,91 @@
+package main;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class ShoppingCart {
+	
+	private HashMap<String, Integer> cart;
+	private HashMap<String, Double> prices;
+	
+	public ShoppingCart() {
+		this.cart = new HashMap<>();
+		this.prices = new HashMap<>();
+		
+		this.prices.put("manzana", 0.50);
+		this.prices.put("platano", 0.30);
+		this.prices.put("naranja", 0.60);
+		this.prices.put("leche", 2.50);
+		this.prices.put("pan", 1.50);
+		
+	}
+	
+	public void addProduct(String product, int quantity) {
+		if(this.prices.containsKey(product)) {
+			this.cart.put(product, quantity);
+			System.out.println("Agregado " + quantity + " " + product + " (s) al carrito");
+		}else {
+			System.out.println("Producto no disponible en la tienda");
+		}
+	}
+	
+	public void eliminarProduct(String product) {
+		if(this.cart.containsKey(product)) {
+			this.cart.remove(product);
+			System.out.println("Eliminado " + product + " del carrito.");
+		}else {
+			System.out.println("El producto no está añadido al carrito, por lo que no se puede eliminar");
+		}
+	}
+	
+	public void updateCantidad(String product, int quantity) {
+		if(quantity <= 0) {
+			this.cart.remove(product);
+			System.out.println("Eliminado " + product + " del carrito.");
+		} 
+		if (this.cart.containsKey(product)){
+			this.cart.put(product, quantity);
+			System.out.println("Actualizado " + product + " cantidad a " + quantity);
+		}else {
+			System.out.println("El producto no está añadido al carrito, por lo que no se puede actualizar");
+		}
+	}
+	
+	public void mostrarCarrito() {
+		System.out.println("\n Contenido del carrito: \n ------------------");
+		double total = 0;
+		for (String product : this.cart.keySet()) {
+			System.out.println(this.cart.get(product) +  "- Cantidad: " + this.cart.get(product) + " - Precio: " + this.cart.get(product)*this.prices.get(product) + "€");
+		}
+		System.out.println();
+		System.out.println("Total: " + calcularTotal() + "€ \n");
+		
+	}
+	
+	public double calcularTotal() {
+		ArrayList<Double> precios = new ArrayList<>();
+		double precio;
+		double precioTotal = 0;
+		
+		for(String product : this.cart.keySet()) {
+			precio = this.cart.get(product)*this.prices.get(product);
+			
+			if(precio > 20) {
+				double porcentaje = precio *= 0.1;
+				precio =- porcentaje;
+				precios.add(precio);
+			}
+			precios.add(precio);
+		}
+		
+		for(int i = 0; i < precios.size(); i++) {
+			precioTotal += precios.get(i);
+		}
+		
+		return precioTotal;
+		
+	
+		
+	}
+
+}

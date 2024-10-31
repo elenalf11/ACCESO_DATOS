@@ -1,0 +1,36 @@
+package main;
+
+class TreeNode {
+	int val;
+	TreeNode left;
+	TreeNode right;
+
+	public TreeNode(int val) {
+		this.val = val;
+		this.left = null;
+		this.right = null;
+	}
+}
+
+class Ejercicio1 {
+	public static boolean exists(TreeNode root, int target) {
+		if (root == null) {
+			return false;
+		}
+
+		if (target == root.val) {
+			return true;
+		}
+
+		return target < root.val ? exist(root.left, target) : exist(root.right, target);
+	}
+}
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

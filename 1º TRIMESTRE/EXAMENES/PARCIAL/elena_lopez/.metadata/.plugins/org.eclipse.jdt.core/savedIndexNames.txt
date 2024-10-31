@@ -1,0 +1,7 @@
+INDEX VERSION 1.134+C:\Users\elena\Desktop\2ºDAM\ACCESO_DATOS\1º TRIMESTRE\EXAMENES\PARCIAL\elena_lopez\.metadata\.plugins\org.eclipse.jdt.core
+4055083253.index
+1620673288.index
+1865797976.index
+4187017906.index
+2314872381.index
+396276638.index
