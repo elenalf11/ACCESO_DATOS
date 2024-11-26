@@ -1,0 +1,82 @@
+package main;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Main {
+	
+	private static void sortLogEvents(List<LogEvent> logs) {
+		for(int i = 0; i < logs.size() - 1; i++) {
+			for(int j = i + 1; j < logs.size(); i++ ) {
+				if(logs.get(i).getDateTime().isAfter(logs.get(j).getDateTime())) {
+					Collections.swap(logs, i, j);
+				}
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		
+		List<LogEvent> error = new ArrayList<>();
+		List<String> info = new ArrayList<>();
+		List<String> warn = new ArrayList<>();
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		
+		String nombreArchivo = "log.txt";
+		String line = null;
+		try {
+			BufferedReader lector = new BufferedReader(new FileReader(nombreArchivo));
+			try {
+				while((line = lector.readLine()) != null) {
+					if(line.matches("^\\[.*\\] (INFO|ERROR|WARN) - .*")) {
+						String datePart = line.substring(1, 20);
+						LocalDateTime dateTime = LocalDateTime.parse(datePart, formatter);
+						String logType = line.replaceAll("^\\[.*\\] (INFO|ERROR|WARN) - .*", "$1");
+						LogEvent log = new LogEvent(dateTime, logType);
+						switch (logType.toLowerCase()) {
+							case "error":
+								error.add(line);
+								break;
+							case "info":
+								info.add(line);
+								break;
+							case "warn":
+								warn.add(line);
+								break;	
+						}
+					}else {
+						throw new InvalidLineFormatException();
+					}
+					
+				}
+				sortLogEvents(error);
+				System.out.println("Análisis del archivo log: ");
+				System.out.println("INFO (" + info.size() + ")");
+				System.out.println(info);
+				
+				System.out.println("WARN (" + warn.size() + ")");
+				System.out.println(warn);
+				
+				System.out.println("ERROR (" + error.size() + ")");
+				System.out.println(error);
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (InvalidLineFormatException e) {
+				System.out.println("Error: Formato inválido en el archivo " + nombreArchivo + " : " + line);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

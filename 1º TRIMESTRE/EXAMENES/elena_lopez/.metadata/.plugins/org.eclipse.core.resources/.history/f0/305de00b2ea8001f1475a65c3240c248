@@ -1,0 +1,8 @@
+package main;
+
+public class CuentaBancaria {
+	
+	private String titular;
+	private int id;
+	private double saldo;
+}

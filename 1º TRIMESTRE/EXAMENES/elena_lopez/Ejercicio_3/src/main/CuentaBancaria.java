@@ -1,0 +1,63 @@
+package main;
+
+public class CuentaBancaria {
+	
+	private String titular;
+	private int numCuenta;
+	private double saldo;
+	
+	public CuentaBancaria(String _titular, int _numCuenta, double _saldo) {
+		this.titular = _titular;
+		this.numCuenta = _numCuenta;
+		this.saldo = _saldo;
+	}
+	
+	public String getNombreTitular() {
+		return this.titular;
+	}
+	
+	public int getNumCuenta() {
+		return this.numCuenta;
+	}
+	
+	public double getSaldo() {
+		return this.saldo;
+	}
+	
+	public void depositar (double cantidad) throws ImporteInvalidoException{
+		if(cantidad < 0) {
+			throw new ImporteInvalidoException();
+		}else {
+			this.saldo += cantidad;
+		}
+		
+		
+		
+		
+	}
+	
+	public void retirar(double cantidad) throws ImporteInvalidoException, FondosInsuficientesException{
+		if(cantidad < 0) {
+			throw new ImporteInvalidoException();
+			
+		}
+		
+		if(this.saldo < cantidad) {
+			throw new FondosInsuficientesException();
+		}
+		
+		this.saldo -= cantidad;
+		
+	}
+	
+	public void transferir(CuentaBancaria c2, double cantidad) throws ImporteInvalidoException, FondosInsuficientesException{
+		System.out.println("Transfiriendo " + cantidad + " euros de la cuenta de " + this.titular + " a la cuenta de " + c2.getNombreTitular());
+		retirar(cantidad);
+		c2.depositar(cantidad);
+		
+		
+		
+	}
+	
+	
+}

@@ -1,0 +1,12 @@
+package main;
+
+public class LogEvent {
+	private final LocalDateTime dateTime;
+	private final String originalLine;
+	
+	public LogEvent(LocalDateTime _dateTime, String _originalLine) {
+		this.dateTime = _dateTime;
+		this.originalLine = _originalLine;
+	}
+
+}

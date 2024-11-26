@@ -1,0 +1,12 @@
+package main;
+
+public class Main {
+
+	public static void main(String[] args) {
+		String nombreFichero = "fichero.txt";
+		
+		BufferedReader lector = new BufferedReader(new FileReader(nombreFichero));
+
+	}
+
+}

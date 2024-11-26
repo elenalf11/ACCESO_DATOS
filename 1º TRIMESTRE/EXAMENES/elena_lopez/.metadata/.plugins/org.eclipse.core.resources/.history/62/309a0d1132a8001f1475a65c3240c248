@@ -1,0 +1,59 @@
+package main;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		//Configurar Cuenta 1
+		System.out.println("=== Configuración de la Cuenta 1 ===");
+		
+		System.out.print("Ingrese el nombre del titular: ");
+		String titular_1 = sc.next();
+		
+		System.out.print("Ingrese el número de cuenta");
+		int numCuenta_1 = sc.nextInt();
+		
+		System.out.print("Ingrese el saldo inicial: ");
+		double saldo_1 = sc.nextDouble();
+		
+		CuentaBancaria c1 = new CuentaBancaria(titular_1, numCuenta_1, saldo_1);
+		
+		//Configurar Cuenta 2
+		System.out.println("=== Configuración de la Cuenta 2 ===");
+		
+		System.out.print("Ingrese el nombre del titular: ");
+		String titular_2 = sc.next();
+		
+		System.out.print("Ingrese el número de cuenta: ");
+		int numCuenta_2 = sc.nextInt();
+		
+		System.out.print("Ingrese el saldo inicial: ");
+		double saldo_2 = sc.nextDouble();
+		
+		CuentaBancaria c2 = new CuentaBancaria(titular_2, numCuenta_2, saldo_2);
+		
+		//Imprimir el saldo inicial de las dos cuentas
+		System.out.println("Saldo inicial de la cuenta de " + c1.getNombreTitular() + ": " + c1.getSaldo() + " euros");
+		System.out.println("Saldo inicial de la cuenta de " + c2.getNombreTitular() + ": " + c2.getSaldo() + " euros");
+		
+		//Menú de transferencias
+		do {
+			System.out.println("=== Meú de Transferencias ===");
+			System.out.println("1: Transferir de la cuenta de " + c1.getNombreTitular() + " a la cuenta de " + c2.getNombreTitular() + "\n"
+					+ "2: Transferir de la cuenta de " + c2.getNombreTitular() + " a la cuenta de " + c1.getNombreTitular() + "\n" +
+					"3: Salir");
+			int opcion = sc.nextInt();
+			switch (opcion){
+				case 1:
+				
+			}
+			
+		}while(opcion != 0);
+		
+
+	}
+
+}

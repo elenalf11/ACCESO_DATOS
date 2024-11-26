@@ -1,0 +1,3 @@
+Jugador: ELENA -- Puntuación: 400
+Jugador: PEPE -- Puntuación: 200
+Jugador: JUAN -- Puntuación: 100

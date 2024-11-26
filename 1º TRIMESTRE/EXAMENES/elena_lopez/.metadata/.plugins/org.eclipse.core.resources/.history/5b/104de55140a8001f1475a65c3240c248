@@ -1,0 +1,18 @@
+[2024-11-15 08:00:00] INFO - Sistema iniciado
+[2024-11-15 08:05:00] INFO - Usuario admin conectado
+[2024-11-15 08:10:00] WARN - Memoria disponible por debajo del 20%
+[2024-11-15 08:15:00] ERROR - Error de conexión con el servidor
+[2024-11-15 08:20:00] INFO - Proceso de sincronización completado
+[2024-11-15 08:25:00] WARN - Archivo de configuración no encontrado
+[2024-11-15 08:30:00] ERROR - No se pudo cargar el módulo A
+[2024-11-15 08:35:00] INFO - Tarea programada ejecutada correctamente
+[2024-11-15 08:40:00] INFO - Usuario admin desconectado
+[2024-11-15 08:45:00] WARN - Alta latencia detectada en el sistema
+[2024-11-15 08:50:00] ERROR - Fallo crítico en el servicio de autenticación
+[2024-11-15 08:55:00] INFO - Usuario invitado conectado
+[2024-11-15 09:00:00] INFO - Operación completada sin errores
+[2024-11-15 09:05:00] WARN - Uso de disco superando el 80%
+[2024-11-15 09:10:00] ERROR - Base de datos bloqueada
+[2024-11-15 09:15:00] INFO - Respaldo automático realizado con éxito
+[2024-11-15 09:20:00] WARN - Servicio de correo no responde
+[2024-11-15 09:26:00] ERROR - No se pudo enviar la notificación al usuario

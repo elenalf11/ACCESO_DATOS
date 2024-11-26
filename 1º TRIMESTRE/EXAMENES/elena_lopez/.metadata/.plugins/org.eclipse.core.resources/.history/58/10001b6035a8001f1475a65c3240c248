@@ -1,0 +1,98 @@
+package main;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		//Configurar Cuenta 1
+		System.out.println("=== Configuración de la Cuenta 1 ===");
+		
+		System.out.print("Ingrese el nombre del titular: ");
+		String titular_1 = sc.next();
+		
+		System.out.print("Ingrese el número de cuenta: ");
+		int numCuenta_1 = sc.nextInt();
+		
+		System.out.print("Ingrese el saldo inicial: ");
+		double saldo_1 = sc.nextDouble();
+		
+		CuentaBancaria c1 = new CuentaBancaria(titular_1, numCuenta_1, saldo_1);
+		
+		//Configurar Cuenta 2
+		System.out.println("=== Configuración de la Cuenta 2 ===");
+		
+		System.out.print("Ingrese el nombre del titular: ");
+		String titular_2 = sc.next();
+		
+		System.out.print("Ingrese el número de cuenta: ");
+		int numCuenta_2 = sc.nextInt();
+		
+		System.out.print("Ingrese el saldo inicial: ");
+		double saldo_2 = sc.nextDouble();
+		
+		CuentaBancaria c2 = new CuentaBancaria(titular_2, numCuenta_2, saldo_2);
+		
+		//Imprimir el saldo inicial de las dos cuentas
+		System.out.println("Saldo inicial de la cuenta de " + c1.getNombreTitular() + ": " + c1.getSaldo() + " euros");
+		System.out.println("Saldo inicial de la cuenta de " + c2.getNombreTitular() + ": " + c2.getSaldo() + " euros");
+		
+		int opcion;
+		do {
+			//Menú de transferencias
+			System.out.println("=== Meú de Transferencias ===");
+			System.out.println("1: Transferir de la cuenta de " + c1.getNombreTitular() + " a la cuenta de " + c2.getNombreTitular() + "\n"
+					+ "2: Transferir de la cuenta de " + c2.getNombreTitular() + " a la cuenta de " + c1.getNombreTitular() + "\n" +
+					"3: Salir");
+			System.out.print("Seleccione una opción: ");
+			opcion = sc.nextInt();
+			switch (opcion){
+				case 1:
+					System.out.print("Ingrese el importe a transferir: ");
+					double cantidad_1 = sc.nextDouble();
+				try {
+					c1.transferir(c2, cantidad_1);
+					System.out.println("Saldo de la cuenta de " + c1.getNombreTitular() + " después de la transferencia: " + c1.getSaldo());
+					System.out.println("Saldo de la cuenta de: " + c2.getNombreTitular() + " después de la transferencia: " + c2.getSaldo());
+					
+				} catch (ImporteInvalidoException e) {
+					System.out.println("Error: El importe a retirar debe ser mayor a cero");
+				} catch (FondosInsuficientesException e) {
+					System.out.println("Error: Saldo insuficiente para realizar el retiro");
+				}
+				break;
+					
+				case 2:
+					System.out.print("Ingrese el importe a transferir: ");
+					double cantidad_2 = sc.nextDouble();
+				try {
+					c2.transferir(c1, cantidad_2);
+					System.out.println("Saldo de la cuenta de " + c1.getNombreTitular() + " después de la transferencia: " + c1.getSaldo());
+					System.out.println("Saldo de la cuenta de: " + c2.getNombreTitular() + " después de la transferencia: " + c2.getSaldo());
+					
+				} catch (ImporteInvalidoException e) {
+					System.out.println("Error: El importe a retirar debe ser mayor a cero");
+					e.printStackTrace();
+				} catch (FondosInsuficientesException e) {
+					System.out.println("Error: Saldo insuficiente para realizar el retiro");
+				}
+				break;
+					
+				case 0:
+					System.out.println("Saliendo del programa");
+					break;
+				default:
+					System.out.println("Opción no válida");
+					break;
+					
+			}
+			
+		}while(opcion != 0);
+		sc.close();
+		
+
+	}
+
+}

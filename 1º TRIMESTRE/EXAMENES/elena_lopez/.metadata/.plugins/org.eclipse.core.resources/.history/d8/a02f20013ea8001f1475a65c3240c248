@@ -1,0 +1,49 @@
+package main;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main {
+	
+	private static void sortLogEvents(ArrayList<LogEvent> logs) {
+		for(int i = 0; i < logs.size() - 1; i++) {
+			for(int j = i + 1; j < logs.size(); i++ ) {
+				if(logs.get(i).getDateTime().isAfter(logs.get(j).getDateTime())) {
+					Collections.swap(logs, i, j);
+				}
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		
+		ArrayList<LogEvent> error = new ArrayList<>();
+		ArrayList<LogEvent> info = new ArrayList<>();
+		ArrayList<LogEvent> warn = new ArrayList<>();
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		
+		String nombreArchivo = "log.txt";
+		
+		try {
+			BufferedReader lector = new BufferedReader(new FileReader(nombreArchivo));
+			String line;
+			try {
+				while((line = lector.readLine()) != null) {
+					
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

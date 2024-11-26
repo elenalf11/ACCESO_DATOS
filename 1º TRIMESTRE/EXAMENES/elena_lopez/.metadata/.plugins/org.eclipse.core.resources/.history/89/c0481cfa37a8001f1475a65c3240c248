@@ -1,0 +1,43 @@
+package main;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Main {
+
+	public static void main(String[] args) {
+		String nombreFichero = "fichero.txt";
+		int contador = 0;
+		String line;
+		
+		try {
+			BufferedReader lector = new BufferedReader(new FileReader(nombreFichero));
+			
+			try {
+				
+				while((line = lector.readLine()) != null) {
+					if(line.matches("^[a-zA-Z0-9\\s]+$")) {
+						System.out.println("Línea válida: " + line);
+					}else {
+						throw new InvalidLineFormatException();
+					}
+					contador++;
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvalidLineFormatException e) {
+				// TODO Auto-generated catch block
+				System.out.println("Error: Formato inválido en la línea " + contador + " : " + line);
+				
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

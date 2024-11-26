@@ -1,0 +1,27 @@
+package main;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		//Configurar Cuenta 1
+		System.out.println("=== Configuración de la Cuenta 1 ===");
+		
+		System.out.print("Ingrese el nombre del titular: ");
+		String titular_1 = sc.next();
+		
+		System.out.print("Ingrese el número de cuenta");
+		int numCuenta_1 = sc.nextInt();
+		
+		System.out.print("Ingrese el saldo inicial: ");
+		double saldo_1 = sc.nextDouble();
+		
+		CuentaBancaria c1 = new CuentaBancaria(titular_1, numCuenta_1, saldo_1);
+		
+
+	}
+
+}

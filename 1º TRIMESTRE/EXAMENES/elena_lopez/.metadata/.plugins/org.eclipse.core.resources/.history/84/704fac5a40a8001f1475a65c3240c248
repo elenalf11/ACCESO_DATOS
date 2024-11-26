@@ -1,0 +1,4 @@
+[2024-11-15 08:00:00] INFO - Sistema iniciado
+[2024-11-15 08:05:00] INFO - Usuario admin conectado
+[2024-11-15 08:10:00] WARN - Memoria disponible por debajo del 20%
+[2024-11-15 08:15:00] ERROR - Error de conexión con el servidor

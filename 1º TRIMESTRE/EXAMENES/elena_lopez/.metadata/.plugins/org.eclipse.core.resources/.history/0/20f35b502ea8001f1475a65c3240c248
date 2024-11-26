@@ -1,0 +1,14 @@
+package main;
+
+public class CuentaBancaria {
+	
+	private String titular;
+	private int numCuenta;
+	private double saldo;
+	
+	public CuentaBancaria(String _titular, int _numCuenta, double _saldo) {
+		this.titular = _titular;
+		this.numCuenta = _numCuenta;
+		this.saldo = _saldo;
+	}
+}

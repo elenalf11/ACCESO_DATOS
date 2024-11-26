@@ -1,0 +1,52 @@
+package main;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Main {
+
+	public static void main(String[] args) {
+		String nombreFichero = "fichero.txt";
+		int contador = 1;
+		String line = null;
+		
+		try {
+			BufferedReader lector = new BufferedReader(new FileReader(nombreFichero));
+			
+			//if(lector.length() > 100) {
+				//throw new FileTooLargeException();
+			//}
+			
+			
+			try {
+				
+				while((line = lector.readLine()) != null) {
+					if(line.matches("^[a-zA-Z0-9\\s]+$")) {
+						System.out.println("Línea válida: " + line);
+					}else {
+						throw new InvalidLineFormatException();
+					}
+					contador++;
+				}
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (InvalidLineFormatException e) {
+				System.out.println("Error: Formato inválido en la línea " + contador + " : " + line);
+				
+			}
+			
+		} catch (FileNotFoundException e) {
+			System.out.println("Error: El archivo no existe");
+		} catch (FileTooLargeException e) {
+			System.out.println("Error: El archivo es demasiado grande: " + nombreFichero);
+		}
+		
+		
+		
+
+	}
+
+}
