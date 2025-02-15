@@ -1,0 +1,43 @@
+package main;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Ejercicio2 {
+	
+	private static final String URL = "jdbc:mysql://localhost:3306/examen?serverTimezone=UTC";
+	private static final String USER = "root";
+	private static final String PASS = "110805";
+
+	public static void main(String[] args) {
+		try {
+			Connection c = DriverManager.getConnection(URL, USER, PASS);
+			
+			// SQL tabla 1
+			String sql_tabla1 = "CREATE TABLE CLIENTES (DNI CHAR (9) NOT NULL, APELLIDOS VARCHAR (32) NOT NULL, "
+					+ "CP CHAR(5), PRIMARY KEY (DNI);";
+			
+			// SQL tabla 2
+			String sql_tabla_2 = "CREATE TABLE EMPLEADOS (DNI CHAR (9) NOT NULL, NOMBRE VARCHAR (20) NOT NULL, "
+					+ "CONTACTO CHAR (9), PRIMARY KEY (DNI);";
+			
+			Statement s = c.createStatement();
+			s.execute(sql_tabla1);
+			System.out.println("Tabla 1 creada correctamente");
+			
+			s.execute(sql_tabla_2);
+			System.out.println("Tabla 2 creada correctamente");
+			
+			s.close();
+			c.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

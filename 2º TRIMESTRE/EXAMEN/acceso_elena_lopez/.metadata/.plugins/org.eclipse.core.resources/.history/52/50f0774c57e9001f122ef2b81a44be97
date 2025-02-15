@@ -1,0 +1,43 @@
+package main;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Ejercicio5 {
+	
+	private static final String URL = "jdbc:mysql://localhost:3306/examen?serverTimezone=UTC";
+	private static final String USER = "root";
+	private static final String PASS = "110805";
+
+	public static void main(String[] args) {
+		
+		try {
+			Connection c = DriverManager.getConnection(URL, USER, PASS);
+			String sql_1 = "UPDATE LIBROS SET PAGINAS = 2000 WHERE ISBN = '002';";
+			String sql_2 = "DELETE FROM EMPLEADOS WHERE DNI = '12345678X';";
+			String sql_3 = "UPDATE CLIENTES SET APELLIDOS = 'Lopez Felix', CP = '45223' WHERE DNI = '98765432B';";
+			
+			String sql_4 = "ALTER TABLE EMPLEADOS ADD COLUMN ID_DEPARTAMENTO CHAR(3);";
+			String sql_5 = "ALTER TABLE LIBROS DROP COLUMN PAGINAS;";
+			String sql_6 = "DROP TABLE IF EXISTS CLIENTES";
+			
+			Statement s = c.createStatement();
+			
+			s.executeUpdate(sql_1);
+			System.out.println("Los datos de la tabla LIBROS han sido actualizados");
+			s.executeUpdate(sql_2);
+			System.out.println("El empleado ha sido eliminado correctamente");
+			s.executeUpdate(sql_3);
+			System.out.println("Los datos de la tabla CLIENTES han sido actualizados");
+			
+			s.exe
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

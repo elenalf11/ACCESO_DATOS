@@ -46,7 +46,7 @@ public class JDBC_insert {
 		// String para hacer el update
 		String updateSQL = "UPDATE CLIENTES SET APELLIDOS = 'ROJAS' WHERE DNI = '89012345E';";
 		
-		stmt.execute(updateSQL);
+		stmt.executeUpdate(updateSQL);
 		System.out.println("Campos actualizados");
 		
 		stmt.close();
@@ -58,7 +58,7 @@ public class JDBC_insert {
 		// String para hacer el delete
 		String deleteSQL = "DELETE FROM CLIENTES WHERE DNI = '09876543K';";
 		
-		stmt.execute(deleteSQL);
+		stmt.executeUpdate(deleteSQL);
 		System.out.println("Campo borrado correctamente");
 		
 		stmt.close();

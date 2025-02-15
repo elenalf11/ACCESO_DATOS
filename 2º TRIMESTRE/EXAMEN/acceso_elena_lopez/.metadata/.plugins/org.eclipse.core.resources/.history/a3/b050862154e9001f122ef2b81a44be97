@@ -1,0 +1,28 @@
+package main;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Ejercicio4 {
+	
+	private static final String URL = "jdbc:mysql://localhost:3306/examen?serverTimezone=UTC";
+	private static final String USER = "root";
+	private static final String PASS = "110805";
+
+	public static void main(String[] args) {
+		try {
+			Connection c = DriverManager.getConnection(URL, USER, PASS);
+			String sql_1 = "SELECT * FROM CLIENTES;";
+			String sql_2 = "SELECT * FROM EMPLEADOS;";
+			String sql_3 = "SELECT * FROM LIBROS;";
+			
+			Statement s = c.createStatement();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

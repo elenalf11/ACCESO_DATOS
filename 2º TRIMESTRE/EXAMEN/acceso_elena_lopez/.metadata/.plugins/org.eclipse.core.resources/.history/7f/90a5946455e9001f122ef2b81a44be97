@@ -1,0 +1,66 @@
+package main;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Ejercicio4 {
+	
+	private static final String URL = "jdbc:mysql://localhost:3306/examen?serverTimezone=UTC";
+	private static final String USER = "root";
+	private static final String PASS = "110805";
+
+	public static void main(String[] args) {
+		try {
+			Connection c = DriverManager.getConnection(URL, USER, PASS);
+			String sql_1 = "SELECT * FROM CLIENTES;";
+			String sql_2 = "SELECT * FROM EMPLEADOS;";
+			String sql_3 = "SELECT * FROM LIBROS;";
+			
+			Statement s = c.createStatement();
+			ResultSet rs1 = s.executeQuery(sql_1);
+			int i = 1;
+			System.out.println("---- Tabla Clientes ----");
+			while(rs1.next()) {
+				System.out.println("---- [" + "Cliente " + (i++) + "] ----");
+				System.out.println("DNI: " + rs1.getString("DNI"));
+				System.out.println("Apellidos: " + rs1.getString("APELLIDOS"));
+				System.out.println("Código Postal: " + rs1.getString("CP"));
+			}
+			
+			ResultSet rs2 = s.executeQuery(sql_2);
+			int j = 1;
+			System.out.println("---- Tabla Empleados ----");
+			while(rs2.next()) {
+				System.out.println("---- [" + "Empleado " + (j++) + "] ----");
+				System.out.println("DNI: " + rs2.getString("DNI"));
+				System.out.println("Nombre: " + rs2.getString("NOMBRE"));
+				System.out.println("Contacto: " + rs2.getString("CONTACTO"));
+			}
+			
+			ResultSet rs3 = s.executeQuery(sql_3);
+			int x = 1;
+			System.out.println("---- Tabla Libros ----");
+			while(rs3.next()) {
+				System.out.println("---- [" + "Libro " + (x++) + "] ----");
+				System.out.println("ISBN: " + rs3.getString("ISBN"));
+				System.out.println("Título: " + rs3.getString("NOMBRE"));
+				System.out.println("Autor: " + rs3.getString("AUTOR"));
+				System.out.println("Número de Páginas: " + rs3.getString("PAGINAS"));
+			}
+			
+			rs3.close();
+			rs2.close();
+			rs1.close();
+			s.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

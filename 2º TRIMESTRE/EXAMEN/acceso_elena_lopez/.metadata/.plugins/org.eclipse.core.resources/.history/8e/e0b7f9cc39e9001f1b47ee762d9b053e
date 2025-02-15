@@ -1,0 +1,12 @@
+package main;
+
+public class Main {
+	
+	private static final String URL = "jdbc:mysql://localhost:3306//mibasededatos?serverTimezone=UTC";
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

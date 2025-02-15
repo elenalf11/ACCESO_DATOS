@@ -1,0 +1,79 @@
+package main;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Ejercicio3 {
+	
+	private static final String URL = "jdbc:mysql://localhost:3306/examen?serverTimezone=UTC";
+	private static final String USER = "root";
+	private static final String PASS = "110805";
+
+	public static void main(String[] args) {
+		try {
+			Connection c = DriverManager.getConnection(URL, USER, PASS);
+			/*
+			// Inserciones tabla 1
+			String sql_tabla1_1 = "INSERT INTO CLIENTES (DNI, APELLIDOS, CP) VALUES ('12345678A', 'Garcia Martinez', '28001');";
+			String sql_tabla_1_2 = "INSERT INTO CLIENTES (DNI, APELLIDOS, CP) VALUES ('98765432B', 'Lopez Sanchez', '08001');";
+			String sql_tabla_1_3 = "INSERT INTO CLIENTES (DNI, APELLIDOS, CP) VALUES ('45678912C', 'Fernandez Ruiz', '41001'); ";
+			String sql_tabla_1_4 = "INSERT INTO CLIENTES (DNI, APELLIDOS, CP) VALUES ('78912345D', 'Martin Gonzalez', '46001'); ";
+			
+			// Inserciones tabla 2
+			String sql_tabla2 = "INSERT INTO EMPLEADOS (DNI, NOMBRE, CONTACTO) VALUES ('12345678X', 'Juan Alonso', '123456789');";
+			String sql_tabla_2_2 = "INSERT INTO EMPLEADOS (DNI, NOMBRE, CONTACTO) VALUES ('54987360D', 'Maria Martin', '491053433');";
+			String sql_tabla_2_3 = "INSERT INTO EMPLEADOS (DNI, NOMBRE, CONTACTO) VALUES ('99342060Q', 'Mario Gonzalez', '446623105');";
+			String sql_tabla_2_4 = "INSERT INTO EMPLEADOS (DNI, NOMBRE, CONTACTO) VALUES ('44360252E', 'Paula Ruiz', '664321890');";
+			*/
+			// Inserciones tabla 3
+			String sql_tabla3 = "INSERT INTO LIBROS (ISBN, NOMBRE, AUTOR, PAGINAS) VALUES ('0001', 'El Quijote', 'Miguel de Cervantes', 1000);";
+			String sql_tabla_3_2 = "INSERT INTO LIBROS (ISBN, NOMBRE, AUTOR, PAGINAS) VALUES ('0002', 'Harry Potter', 'J.K. Rowlin', 500);";
+			String sql_tabla_3_3 = "INSERT INTO LIBROS (ISBN, NOMBRE, AUTOR, PAGINAS) VALUES ('0003', 'La vuelta al mundo', 'Julio Verne', 700);";
+			String sql_tabla_3_4 = "INSERT INTO LIBROS (ISBN, NOMBRE, AUTOR, PAGINAS) VALUES ('0004', 'Invisible', 'Eloy Moreno', 400); ";
+			
+			Statement s = c.createStatement();
+			/*
+			// Inserciones tabla 1
+			s.executeUpdate(sql_tabla1_1);
+			System.out.println("Datos insertados en tabla 1 de manera correcta");
+			s.executeUpdate(sql_tabla_1_2);
+			System.out.println("Datos insertados en tabla 1 de manera correcta");
+			s.executeUpdate(sql_tabla_1_3);
+			System.out.println("Datos insertados en tabla 1 de manera correcta");
+			s.executeUpdate(sql_tabla_1_4);
+			System.out.println("Datos insertados en tabla 1 de manera correcta");
+			
+			// Inserciones tabla 2
+			s.executeUpdate(sql_tabla2);
+			System.out.println("Datos insertados en tabla 2 de manera correcta");
+			s.executeUpdate(sql_tabla_2_2);
+			System.out.println("Datos insertados en tabla 2 de manera correcta");
+			s.executeUpdate(sql_tabla_2_3);
+			System.out.println("Datos insertados en tabla 2 de manera correcta");
+			s.executeUpdate(sql_tabla_2_4);
+			System.out.println("Datos insertados en tabla 2 de manera correcta");
+			*/
+			
+			// Inserciones tabla 3
+			s.executeUpdate(sql_tabla3);
+			System.out.println("Datos insertados en tabla 3 de manera correcta");
+			s.executeUpdate(sql_tabla_3_2);
+			System.out.println("Datos insertados en tabla 3 de manera correcta");
+			s.executeUpdate(sql_tabla_3_3);
+			System.out.println("Datos insertados en tabla 3 de manera correcta");
+			s.executeUpdate(sql_tabla_3_4);
+			System.out.println("Datos insertados en tabla 3 de manera correcta");
+			
+			
+			s.close();
+			c.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

@@ -1,0 +1,67 @@
+package main;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Ejercicio5 {
+	
+	private static final String URL = "jdbc:mysql://localhost:3306/examen?serverTimezone=UTC";
+	private static final String USER = "root";
+	private static final String PASS = "110805";
+
+	public static void main(String[] args) {
+		
+		try {
+			Connection c = DriverManager.getConnection(URL, USER, PASS);
+			String sql_1 = "UPDATE LIBROS SET PAGINAS = 2000 WHERE ISBN = '002';";
+			String sql_2 = "DELETE FROM EMPLEADOS WHERE DNI = '12345678X';";
+			String sql_3 = "UPDATE CLIENTES SET APELLIDOS = 'Lopez Felix', CP = '45223' WHERE DNI = '98765432B';";
+			
+			String sql_4 = "ALTER TABLE EMPLEADOS ADD COLUMN ID_DEPARTAMENTO CHAR(3);";
+			String sql_5 = "ALTER TABLE LIBROS DROP COLUMN PAGINAS;";
+			String sql_6 = "DROP TABLE IF EXISTS CLIENTES";
+			
+			Statement s = c.createStatement();
+			
+			s.executeUpdate(sql_1);
+			System.out.println("Los datos de la tabla LIBROS han sido actualizados");
+			String sql_7 = "SELECT FROM LIBROS WHERE ISBN = '002';";
+			ResultSet rs = s.executeQuery(sql_7);
+			while(rs.next()) {
+				System.out.println("ISBN: " + rs.getString("ISBN"));
+				System.out.println("Título: " + rs.getString("NOMBRE"));
+				System.out.println("Autor: " + rs.getString("AUTOR"));
+				System.out.println("Número de Páginas: " + rs.getString("PAGINAS"));
+			}
+			System.out.println();
+			System.out.println();
+			s.executeUpdate(sql_2);
+			System.out.println("El empleado ha sido eliminado correctamente");
+			String sql_8 = "SELECT * FROM EMPLEADOS;";
+			ResultSet rs1 = s.executeQuery(sql_8);
+			while(rs1.next()) {
+				System.out.println("DNI: " + rs1.getString("DNI"));
+				System.out.println("Apellidos: " + rs1.getString("APELLIDOS"));
+				System.out.println("Código Postal: " + rs1.getString("CP"));
+			}
+			System.out.println();
+			s.executeUpdate(sql_3);
+			System.out.println("Los datos de la tabla CLIENTES han sido actualizados");
+			
+			s.execute(sql_4);
+			System.out.println("Nueva columna añadida a la tabla Empleados");
+			s.execute(sql_5);
+			System.out.println("Columna Páginas eliminada de la tabla Libros");
+			s.execute(sql_6);
+			System.out.println("Tabla Clientes eliminada");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}
